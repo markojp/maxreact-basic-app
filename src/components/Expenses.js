@@ -1,3 +1,4 @@
+import { Card } from "./Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 
@@ -12,7 +13,7 @@ export const Expenses = (props) => {
           />
         );
       });
-    return <div className="expenses ">
+    return <Card className="expenses">
         {expenseElem}
-    </div>;
+    </Card>;
 }
