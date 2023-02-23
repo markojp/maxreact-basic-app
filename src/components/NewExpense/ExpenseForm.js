@@ -2,31 +2,32 @@ import "./ExpenseForm.css";
 import React, { useState } from "react";
 
 const ExpenseForm = (props) => {
-  // const [enteredTitle, setEnteredTitle] = useState("");
-  // const [enteredAmount, setEnteredAmount] = useState("");
-  // const [enteredDate, setEnteredDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
-  const [enteredExpense, setEnteredExpense] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+//   const [enteredExpense, setEnteredExpense] = useState({
+//     enteredTitle: "",
+//     enteredAmount: "",
+//     enteredDate: "",
+//   });
 
   const titleChangeHandler = (event) => {
-    //setEnteredTitle(event.target.value);
+    setEnteredTitle(event.target.value);
 
     // wrong way to update object
     // setEnteredExpense({
     //     ...enteredExpense, enteredTitle: event.target.value
     // });
 
-    setEnteredExpense((prevState) => {
-      return { ...enteredExpense, enteredTitle: event.target.value };
-    });
+    // correct way to update object using previous state
+    // setEnteredExpense((prevState) => {
+    //   return { ...enteredExpense, enteredTitle: event.target.value };
+    // });
   };
 
   const amountChangeHandler = (event) => {
-    //setEnteredAmount(event.target.value);
+    setEnteredAmount(event.target.value);
 
     // wrong way to update object
     // setEnteredExpense({
@@ -34,14 +35,15 @@ const ExpenseForm = (props) => {
     //   enteredAmount: event.target.value,
     // });
 
-    setEnteredExpense((prevState) => {
-        return { ...enteredExpense, enteredAmount: event.target.value };
-      });
+     // correct way to update object using previous state
+    // setEnteredExpense((prevState) => {
+    //     return { ...enteredExpense, enteredAmount: event.target.value };
+    //   });
 
   };
 
   const dateChangeHandler = (event) => {
-    //setEnteredDate(event.target.value);
+    setEnteredDate(event.target.value);
     
     // wrong way to update object
     // setEnteredExpense({
@@ -49,14 +51,22 @@ const ExpenseForm = (props) => {
     //   enteredDate: event.target.value,
     // });
 
-    setEnteredExpense((prevState) => {
-        return { ...enteredExpense, enteredDate: event.target.value };
-      });
+     // correct way to update object using previous state
+    // setEnteredExpense((prevState) => {
+    //     return { ...enteredExpense, enteredDate: event.target.value };
+    //   });
 
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const enteredExpense = {title: enteredTitle, amount: enteredAmount, date: new Date(enteredDate)};
+    console.log(enteredExpense);
+    
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
