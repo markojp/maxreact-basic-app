@@ -6,7 +6,6 @@ const Expenses = (props) => {
     const expenseElem = props.items.map((expense) => {
         return (
           <ExpenseItem
-            id={expense.id}
             key={expense.id}
             date={expense.date}
             title={expense.title}
