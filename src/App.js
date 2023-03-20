@@ -15,9 +15,9 @@ const App = () => {
 
   const years = [2019, 2020, 2021, 2022, 2023];
   const selectedYear = 2019;
-  console.log("App render");
+  
   const addExpenseHandler = (expense) => {
-    console.log('In App.js');
+    
     setExpenses(prevExpenses => {
       return [expense, ...prevExpenses];
     })

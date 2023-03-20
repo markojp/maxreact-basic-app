@@ -10,16 +10,13 @@ const Expenses = ({items, selected, options }) => {
     const filterChangeHandler = (selectedYear) =>{
       setFilteredYear(selectedYear)
     };
-    console.log("Expense render.");
-
+    
     useEffect(() =>{
       const selectedItems = items.filter(item => item.date.getFullYear().toString()===filteredYear);
       setFilteredItems(selectedItems);
-      console.log("Effect fired");
+      
     }, [filteredYear, items]);
 
-    //const selectedExpenses = items.filter(item => item.date.getFullYear().toString()===filteredYear);
-    //console.log(selectedExpenses);
     const expenseElem = filteredItems.map((expense) => {
         return (
           <ExpenseItem
@@ -30,9 +27,12 @@ const Expenses = ({items, selected, options }) => {
           />
         );
       });
+    
+    const conditionalElem = filteredItems.length === 0 ? <p>No Expenses found</p>: expenseElem;
+
     return <Card className="expenses">
         <ExpensesFilter options={options} selected={filteredYear} onChangeFilter={filterChangeHandler} />
-        {expenseElem}
+        {conditionalElem}
     </Card>;
 }
 
