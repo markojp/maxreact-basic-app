@@ -6,8 +6,11 @@ const DUMMY_EXPENSES = [
   { id: "e1", date: new Date(2022, 0, 11), title: "Insurance", amount: 100 },
   { id: "e2", date: new Date(2021, 1, 12), title: "Rent", amount: 400 },
   { id: "e3", date: new Date(2020, 2, 13), title: "Electricity", amount: 70 },
-  { id: "e4", date: new Date(2019, 3, 14), title: "Phone", amount: 50 },
+  { id: "e4", date: new Date(2019, 3, 14), title: "Phone", amount: 500 },
   { id: "e5", date: new Date(2019, 1, 12), title: "Clothes", amount: 340 },
+  { id: "e6", date: new Date(2020, 8, 12), title: "Furniture", amount: 260 },
+  { id: "e7", date: new Date(2021, 9, 12), title: "Food", amount: 30 },
+  { id: "e8", date: new Date(2022, 11, 12), title: "Toiletpaper", amount: 34 },
 ];
 
 const App = () => {
